@@ -47,21 +47,6 @@ function buff(mod, player_location, delay, skill_id, job) {
 }
 
 module.exports = function Thrall(mod) {
-  // Tera Job IDs:
-  // 0 - Warrior
-  // 1 - Lancer
-  // 2 - Slayer
-  // 3 - Berserker
-  // 4 - Sorcerer
-  // 5 - Archer
-  // 6 - Priest
-  // 7 - Mystic
-  // 8 - Reaper
-  // 9 - Gunner
-  // 10 - Brawler
-  // 11 - Ninja
-  // 12 - Valkyrie
-
   mod.command.add('t', (arg) => {
     if (arg === 'on') {
       mod.settings.thrall = true;
@@ -77,9 +62,8 @@ module.exports = function Thrall(mod) {
   });
 
   let job;
-  mod.hook('S_LOGIN', 14, (packet) => {
-    let model = packet.templateId;
-    job = (model - 10101) % 100;
+  mod.game.on('enter_game', () => {
+    job = (mod.game.me.templateId - 10101) % 100;
   });
 
   let player_location = {};
