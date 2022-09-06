@@ -1,0 +1,10 @@
+{
+  "name": "mystic-thrall",
+  "author": "Alby407",
+  "description": "Automatically uses Thrall of Vengeance skill.",
+  "version": "0.0.1",
+  "disableAutoUpdate": false,
+  "servers": [
+    "https://raw.githubusercontent.com/alby407/mystic-thrall/main/"
+  ]
+}
